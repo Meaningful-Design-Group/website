@@ -115,11 +115,7 @@
   /* ── INJECT BACKGROUND ─────────────────────────────── */
   function initBg(){
     document.querySelectorAll('.batik-bg').forEach(el=>{
-      var layer = document.createElement('div');
-      layer.setAttribute('aria-hidden','true');
-      layer.style.cssText = 'position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;';
-      layer.innerHTML = BATIK_SVG;
-      el.prepend(layer);
+      el.innerHTML = BATIK_SVG;
     });
   }
 
