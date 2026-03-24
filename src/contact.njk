@@ -49,19 +49,19 @@ navActive: contact
     <div>
       <p class="sec-label">Send a Message</p>
       <h2 class="sec-title" style="margin-bottom:40px;">Say hello</h2>
-      <!-- Netlify Forms — add netlify attribute for free form handling -->
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+      <!-- Netlify Forms -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-grid">
         <input type="hidden" name="form-name" value="contact">
         <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-        <div class="form-group">
+        <div class="form-field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required placeholder="Your name">
         </div>
-        <div class="form-group">
+        <div class="form-field">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required placeholder="your@email.com">
         </div>
-        <div class="form-group">
+        <div class="form-field full">
           <label for="interest">I'm interested in</label>
           <select id="interest" name="interest">
             <option value="">Select one…</option>
@@ -73,11 +73,13 @@ navActive: contact
             <option value="other">Something Else</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-field full">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project, idea, or question…"></textarea>
         </div>
-        <button type="submit" class="btn btn--primary">Send Message</button>
+        <div class="full">
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </div>
       </form>
     </div>
 
