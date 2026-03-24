@@ -5,10 +5,6 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Decap CMS OAuth proxy — Netlify handles this automatically via Identity
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-
 # Redirect /admin to the CMS admin panel
 [[redirects]]
   from = "/admin"
