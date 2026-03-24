@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/mdg.css">
-  {% block head %}{% endblock %}
+  {% if threeJs %}<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>{% endif %}
 </head>
 <body class="batik-bg">
 
@@ -40,7 +40,7 @@
 
   <!-- Main content injected by child templates -->
   <main>
-    {% block content %}{% endblock %}
+    {{ content | safe }}
   </main>
 
   <!-- Footer -->
@@ -93,6 +93,5 @@
   </footer>
 
   <script src="/assets/js/mdg-bg.js"></script>
-  {% block scripts %}{% endblock %}
 </body>
 </html>
