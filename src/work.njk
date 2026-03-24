@@ -1,0 +1,65 @@
+---
+layout: base.njk
+title: Our Work
+description: Explore MDG's projects across digital fabrication, clean energy, education, and community innovation in Bali and beyond.
+navActive: work
+---
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">Portfolio</p>
+    <h1 class="page-hero-title">Work that<br>matters</h1>
+    <p class="page-hero-lead">From hydrogen villages to international maker festivals — each project is a living experiment in regenerative design.</p>
+  </div>
+  <svg class="page-hero-polygon" width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--lime)" stroke-width="0.5" opacity="0.28">
+      <polygon points="140,18 256,76 256,196 140,254 24,196 24,76" fill="none"/>
+      <polygon points="140,46 232,94 232,178 140,226 48,178 48,94" fill="none"/>
+      <polygon points="140,74 208,112 208,160 140,198 72,160 72,112" fill="none"/>
+      <line x1="140" y1="18" x2="140" y2="254"/><line x1="24" y1="76" x2="256" y2="196"/><line x1="256" y1="76" x2="24" y2="196"/>
+    </g>
+  </svg>
+</section>
+
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container">
+    <div class="card-grid">
+      {% for proj in collections.projects %}
+      <div class="card fade-up" data-accent="{{ proj.data.accent }}">
+        <div class="card-content">
+          <p class="card-label">{{ proj.data.category or "Project" }}</p>
+          <h3 class="card-title">{{ proj.data.title }}</h3>
+          <p class="card-desc">{{ proj.data.description }}</p>
+          {% if proj.data.stats %}
+          <div style="display:flex;gap:24px;margin-top:16px;flex-wrap:wrap;">
+            {% for s in proj.data.stats | limit(2) %}
+            <div>
+              <div style="font-size:1.3rem;font-weight:700;color:var(--cream);">{{ s.num }}</div>
+              <div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream-dim);">{{ s.label }}</div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-motif card-motif-large" style="bottom:8px;right:12px;">
+          <g stroke="currentColor" stroke-width="0.4" opacity="0.22">
+            <polygon points="50,8 90,30 90,70 50,92 10,70 10,30"/><polygon points="50,20 78,35 78,65 50,80 22,65 22,35"/>
+          </g>
+        </svg>
+        <a href="{{ proj.url }}" class="card-link">Explore →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Have a project idea?</h2>
+  <p>We collaborate with innovators, communities, and organizations to bring meaningful solutions to life.</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="/contact/" class="btn btn--primary">Get in Touch</a>
+    <a href="/about/" class="btn btn--ghost">About MDG</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,85 @@
+---
+layout: base.njk
+title: Research
+description: MDG's research explores regenerative design, distributed manufacturing, and community-led innovation.
+navActive: research
+---
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">Research</p>
+    <h1 class="page-hero-title">Knowledge<br>in practice</h1>
+    <p class="page-hero-lead">Our research integrates traditional knowledge, digital tools, and ecological thinking to develop new models of design for the 21st century.</p>
+  </div>
+  <svg class="page-hero-polygon" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--cyan)" stroke-width="0.5" opacity="0.28">
+      <circle cx="150" cy="150" r="125" fill="none"/><circle cx="150" cy="150" r="95" fill="none"/>
+      <circle cx="150" cy="150" r="65" fill="none"/><circle cx="150" cy="150" r="35" fill="none"/>
+      <line x1="25" y1="150" x2="275" y2="150"/><line x1="150" y1="25" x2="150" y2="275"/>
+      <line x1="62" y1="62" x2="238" y2="238"/><line x1="238" y1="62" x2="62" y2="238"/>
+    </g>
+  </svg>
+</section>
+
+<!-- Research pillars -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Research Areas</p>
+    <h2 class="sec-title">Four pillars of<br>inquiry</h2>
+    <div class="card-grid" style="margin-top:56px;">
+      {% set pillars = [
+        {title:"Regenerative Systems", accent:"lime", desc:"Designing closed-loop systems where waste becomes resource. From biomaterials to circular economy models rooted in Balinese ecological practice."},
+        {title:"Digital Fabrication", accent:"cyan", desc:"Advancing accessible manufacturing — from Fab Labs to open-source hardware — enabling communities to make what they need, locally."},
+        {title:"Cultural Innovation", accent:"terra", desc:"Exploring how traditional knowledge systems can guide contemporary design — preserving craft heritage while evolving its practice."},
+        {title:"Community Technology", accent:"terra", desc:"Co-designing technologies with, not for, communities. Participatory methods that centre lived experience in technical decision-making."}
+      ] %}
+      {% for p in pillars %}
+      <div class="card fade-up" data-accent="{{ p.accent }}">
+        <div class="card-content">
+          <p class="card-label">Research Pillar</p>
+          <h3 class="card-title">{{ p.title }}</h3>
+          <p class="card-desc">{{ p.desc }}</p>
+        </div>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" class="card-motif card-motif-large" style="bottom:8px;right:12px;">
+          <g stroke="currentColor" stroke-width="0.4" opacity="0.22">
+            <circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="28"/>
+            <line x1="50" y1="8" x2="50" y2="92"/><line x1="8" y1="50" x2="92" y2="50"/>
+          </g>
+        </svg>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Methodology</p>
+    <h2 class="sec-title">Research through<br>making</h2>
+    <div class="tri-strip" style="margin-top:56px;">
+      {% set methods = [
+        {title:"Action Research", text:"We embed ourselves within communities, learning alongside them and documenting knowledge that emerges from practice."},
+        {title:"Participatory Design", text:"Research participants become co-designers. The communities we work with shape the questions we ask and the solutions we build."},
+        {title:"Material Experiments", text:"Our Fab Lab is a research laboratory — testing natural materials, fabrication techniques, and circular production models."}
+      ] %}
+      {% for m in methods %}
+      <div class="tri-cell fade-up">
+        <h3>{{ m.title }}</h3>
+        <p>{{ m.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Interested in collaborating<br>on research?</h2>
+  <p>We welcome academic partnerships, field research opportunities, and knowledge exchange.</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="/contact/" class="btn btn--primary">Inquire About Research</a>
+    <a href="/work/" class="btn btn--ghost">See Our Projects</a>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Decap CMS OAuth proxy — Netlify handles this automatically via Identity
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
+# Redirect /admin to the CMS admin panel
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# SPA-friendly 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

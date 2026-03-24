@@ -1,0 +1,14 @@
+{
+  "name": "mdg-website",
+  "version": "1.0.0",
+  "description": "Meaningful Design Group — static site with Eleventy + Decap CMS",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve --port 8080",
+    "cms": "npx decap-server"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "decap-server": "^3.0.0"
+  }
+}

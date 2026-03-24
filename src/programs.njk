@@ -1,0 +1,56 @@
+---
+layout: base.njk
+title: Programs
+description: Education programs bridging digital fabrication, design thinking, and regenerative practice in Bali.
+navActive: programs
+---
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">Education</p>
+    <h1 class="page-hero-title">Programs that<br>transform practice</h1>
+    <p class="page-hero-lead">From intensive maker education to master's degrees, our programs cultivate the next generation of regenerative designers and innovators.</p>
+  </div>
+  <svg class="page-hero-polygon" width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--terra)" stroke-width="0.5" opacity="0.28">
+      <rect x="40" y="40" width="240" height="240" rx="4" fill="none"/>
+      <rect x="72" y="72" width="176" height="176" rx="4" fill="none" transform="rotate(12,160,160)"/>
+      <rect x="100" y="100" width="120" height="120" rx="4" fill="none" transform="rotate(24,160,160)"/>
+      <line x1="160" y1="40" x2="160" y2="280"/><line x1="40" y1="160" x2="280" y2="160"/>
+    </g>
+  </svg>
+</section>
+
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container">
+    <div class="card-grid">
+      {% for prog in collections.programs %}
+      <div class="card fade-up" data-accent="{{ prog.data.accent or 'terra' }}">
+        <div class="card-content">
+          <p class="card-label">Program</p>
+          <h3 class="card-title">{{ prog.data.title }}</h3>
+          <p class="card-desc">{{ prog.data.description }}</p>
+          {% if prog.data.programMeta %}
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;">
+            {% if prog.data.programMeta.duration %}<span style="font-size:0.76rem;background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:20px;color:var(--cream-dim);">{{ prog.data.programMeta.duration }}</span>{% endif %}
+            {% if prog.data.programMeta.format %}<span style="font-size:0.76rem;background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:20px;color:var(--cream-dim);">{{ prog.data.programMeta.format }}</span>{% endif %}
+          </div>
+          {% endif %}
+        </div>
+        <a href="{{ prog.url }}" class="card-link">Learn More →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Start your journey</h2>
+  <p>Whether you're a student, professional, or organisation — there's a program for you.</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="/contact/" class="btn btn--primary">Get Started</a>
+    <a href="/about/" class="btn btn--ghost">Learn About MDG</a>
+  </div>
+</section>
+{% endblock %}

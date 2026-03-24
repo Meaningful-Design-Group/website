@@ -1,0 +1,221 @@
+---
+layout: base.njk
+title: Meaningful Design Group
+description: Regenerative design, digital fabrication, and community innovation from Bali, Indonesia.
+navActive: home
+---
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<!-- ── HERO ── -->
+<section class="hero" style="position:relative;overflow:hidden;">
+  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;"></canvas>
+  <div class="hero-content" style="position:relative;z-index:2;">
+    <p class="sec-label fade-up">Meaningful Design Group</p>
+    <h1 class="hero-title fade-up">Design for<br>a Regenerative<br>World</h1>
+    <p class="hero-lead fade-up">We merge Balinese craft traditions with digital fabrication to create meaningful futures — for communities, ecosystems, and the planet.</p>
+    <div class="btn-row fade-up">
+      <a href="/work/" class="btn btn--primary">Explore Our Work</a>
+      <a href="/about/" class="btn btn--ghost">Learn Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY STRIP ── -->
+<section class="section" style="padding:64px 8vw;border-bottom:1px solid var(--border);">
+  <div class="tri-strip">
+    {% for item in site.philosophy %}
+    <div class="tri-cell fade-up">
+      <h3>{{ item.title }}</h3>
+      <p class="tri-sub">{{ item.subtitle }}</p>
+      <p>{{ item.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ── IMPACT NUMBERS ── -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Impact</p>
+    <div class="impact-strip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px;">
+      {% for imp in site.impacts %}
+      <div class="impact-cell fade-up">
+        <div class="impact-num">{{ imp.num }}</div>
+        <div class="impact-label">{{ imp.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED WORK ── -->
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container">
+    <p class="sec-label">Our Work</p>
+    <h2 class="sec-title">Projects that make<br>a difference</h2>
+    <div class="card-grid">
+      {% for proj in collections.projects | limit(4) %}
+      <div class="card fade-up" data-accent="{{ proj.data.accent }}">
+        <div class="card-content">
+          <p class="card-label">{{ proj.data.category or "Project" }}</p>
+          <h3 class="card-title">{{ proj.data.title }}</h3>
+          <p class="card-desc">{{ proj.data.description }}</p>
+        </div>
+        <!-- Batik card motifs -->
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-motif card-motif-large" style="bottom:8px;right:12px;">
+          <g stroke="currentColor" stroke-width="0.4" opacity="0.22">
+            <polygon points="50,8 90,30 90,70 50,92 10,70 10,30"/><polygon points="50,20 78,35 78,65 50,80 22,65 22,35"/>
+            <line x1="50" y1="8" x2="50" y2="92"/><line x1="10" y1="30" x2="90" y2="70"/><line x1="90" y1="30" x2="10" y2="70"/>
+          </g>
+        </svg>
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-motif card-motif-small" style="top:12px;left:16px;">
+          <g stroke="currentColor" stroke-width="0.5" opacity="0.3">
+            <circle cx="22" cy="22" r="18"/><circle cx="22" cy="22" r="10"/>
+            <line x1="22" y1="4" x2="22" y2="40"/><line x1="4" y1="22" x2="40" y2="22"/>
+          </g>
+        </svg>
+        <a href="{{ proj.url }}" class="card-link">Explore →</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="/work/" class="btn btn--ghost">View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAMS ── -->
+<section class="section" style="padding:80px 8vw;border-top:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Education</p>
+    <h2 class="sec-title">Programs that<br>transform makers</h2>
+    <div class="card-grid" style="grid-template-columns:repeat(3,1fr);">
+      {% for prog in collections.programs | limit(3) %}
+      <div class="card fade-up" data-accent="{{ prog.data.accent or 'terra' }}">
+        <div class="card-content">
+          <p class="card-label">Program</p>
+          <h3 class="card-title">{{ prog.data.title }}</h3>
+          <p class="card-desc">{{ prog.data.description }}</p>
+          {% if prog.data.programMeta.duration %}
+          <p style="font-size:0.78rem;color:var(--cream-dim);margin-top:12px;">{{ prog.data.programMeta.duration }}</p>
+          {% endif %}
+        </div>
+        <a href="{{ prog.url }}" class="card-link">Learn More →</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="/programs/" class="btn btn--ghost">All Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="section" style="padding:64px 8vw;border-top:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Partners &amp; Network</p>
+    <div class="partners-strip" style="display:flex;flex-wrap:wrap;gap:24px;margin-top:32px;align-items:center;">
+      {% for p in site.partners %}
+      <span class="partner-pill">{{ p }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<section class="cta-band">
+  <h2>Ready to design<br>something meaningful?</h2>
+  <p>We collaborate with communities, organisations, and innovators to create solutions that matter.</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="/contact/" class="btn btn--primary">Get in Touch</a>
+    <a href="/work/" class="btn btn--ghost">See Our Work</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// ─── Three.js Batik Polygon Hero ───────────────────────────────────────────
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  if(!canvas || !window.THREE) return;
+  const W = canvas.parentElement.offsetWidth, H = canvas.parentElement.offsetHeight;
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+  renderer.setSize(W,H); renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, W/H, 0.1, 1000);
+  camera.position.set(0,0,5.5);
+  const C = { terra:0xC75B3E, cyan:0x4FC3C3, lime:0xB4C642, cream:0xF2EBD9 };
+
+  // Icosahedron shells
+  [3.2,2.6,2.0,1.4].forEach((r,i) => {
+    const geo = new THREE.IcosahedronGeometry(r,1);
+    const mat = new THREE.LineBasicMaterial({color:[C.terra,C.cyan,C.lime,C.cream][i],transparent:true,opacity:[0.10,0.08,0.12,0.18][i]});
+    scene.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo),mat));
+  });
+
+  // Kawung petal rings
+  for(let t=0;t<8;t++){
+    const a = (t/8)*Math.PI*2, r = 2.5;
+    const curve = new THREE.EllipseCurve(Math.cos(a)*r, Math.sin(a)*r, 0.55, 0.85, 0, Math.PI*2);
+    const pts = curve.getPoints(48).map(p=>new THREE.Vector3(p.x,p.y,0.3*Math.sin(a)));
+    const geo = new THREE.BufferGeometry().setFromPoints(pts);
+    scene.add(new THREE.Line(geo,new THREE.LineBasicMaterial({color:C.cyan,transparent:true,opacity:0.14})));
+  }
+
+  // Ceplok star faces
+  const ico = new THREE.IcosahedronGeometry(2.5,0);
+  const pos = ico.attributes.position;
+  for(let i=0;i<pos.count;i+=3){
+    const cx=(pos.getX(i)+pos.getX(i+1)+pos.getX(i+2))/3,
+          cy=(pos.getY(i)+pos.getY(i+1)+pos.getY(i+2))/3,
+          cz=(pos.getZ(i)+pos.getZ(i+1)+pos.getZ(i+2))/3;
+    const starPts=[];
+    for(let s=0;s<16;s++){
+      const a=(s/16)*Math.PI*2, ra=s%2===0?0.28:0.13;
+      starPts.push(new THREE.Vector3(cx+Math.cos(a)*ra,cy+Math.sin(a)*ra,cz+Math.cos(a*3)*0.05));
+    }
+    starPts.push(starPts[0].clone());
+    const sg=new THREE.BufferGeometry().setFromPoints(starPts);
+    scene.add(new THREE.Line(sg,new THREE.LineBasicMaterial({color:C.terra,transparent:true,opacity:0.16})));
+  }
+
+  // Mega-mendung wave rings
+  for(let w=0;w<5;w++){
+    const rw=1.2+w*0.42, wavePts=[];
+    for(let s=0;s<=120;s++){
+      const a=(s/120)*Math.PI*2;
+      wavePts.push(new THREE.Vector3(Math.cos(a)*(rw+0.08*Math.sin(a*7+w)),Math.sin(a)*(rw+0.08*Math.sin(a*7+w)),0.06*Math.sin(a*4)));
+    }
+    const wg=new THREE.BufferGeometry().setFromPoints(wavePts);
+    scene.add(new THREE.Line(wg,new THREE.LineBasicMaterial({color:C.cream,transparent:true,opacity:0.07})));
+  }
+
+  // Particle field (Truntum)
+  const pCount=320, pPos=new Float32Array(pCount*3);
+  for(let i=0;i<pCount;i++){pPos[i*3]=(Math.random()-0.5)*10;pPos[i*3+1]=(Math.random()-0.5)*10;pPos[i*3+2]=(Math.random()-0.5)*10;}
+  const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+  scene.add(new THREE.Points(pg,new THREE.PointsMaterial({color:C.cream,size:0.022,transparent:true,opacity:0.22})));
+
+  let mx=0,my=0;
+  window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-0.5)*2;my=-(e.clientY/window.innerHeight-0.5)*2;});
+  let t=0;
+  (function animate(){
+    requestAnimationFrame(animate); t+=0.004;
+    scene.rotation.y = t*0.18 + mx*0.12;
+    scene.rotation.x = t*0.08 + my*0.08;
+    const s=1+0.04*Math.sin(t*1.3);
+    scene.scale.set(s,s,s);
+    renderer.render(scene,camera);
+  })();
+  window.addEventListener('resize',()=>{
+    const W2=canvas.parentElement.offsetWidth,H2=canvas.parentElement.offsetHeight;
+    renderer.setSize(W2,H2); camera.aspect=W2/H2; camera.updateProjectionMatrix();
+  });
+})();
+</script>
+{% endblock %}

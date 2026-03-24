@@ -1,0 +1,43 @@
+---
+layout: base.njk
+title: News
+description: Latest news, stories, and updates from Meaningful Design Group.
+navActive: news
+---
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">News &amp; Stories</p>
+    <h1 class="page-hero-title">From the field</h1>
+    <p class="page-hero-lead">Stories, updates, and insights from our work across Bali and beyond.</p>
+  </div>
+</section>
+
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container">
+    {% if collections.news.length %}
+    <div class="card-grid">
+      {% for post in collections.news %}
+      <div class="card fade-up" data-accent="terra">
+        <div class="card-content">
+          <p class="card-label">
+            {% if post.data.tags %}{{ post.data.tags[0] }}{% else %}News{% endif %}
+            &nbsp;·&nbsp;
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          </p>
+          <h3 class="card-title">{{ post.data.title }}</h3>
+          <p class="card-desc">{{ post.data.description }}</p>
+        </div>
+        <a href="{{ post.url }}" class="card-link">Read More →</a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div style="text-align:center;padding:80px 0;color:var(--cream-dim);">
+      <p>No news articles yet. Check back soon.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

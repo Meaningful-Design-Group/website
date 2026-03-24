@@ -1,0 +1,54 @@
+{
+  "title": "Meaningful Design Group",
+  "shortTitle": "MDG",
+  "tagline": "Designing regenerative futures from Bali, Indonesia.",
+  "description": "MDG is a design research and make company based in Bali, pioneering regenerative design, digital fabrication, and community innovation across Southeast Asia.",
+  "url": "https://meaningfuldesigngroup.com",
+  "copyright": "© 2022–2026 Meaningful Design Group. All rights reserved. Bali, Indonesia.",
+  "instagram": "https://instagram.com/meaningfuldesigngroup",
+  "linkedin": "https://linkedin.com/company/meaningfuldesigngroup",
+  "email": "hello@meaningfuldesigngroup.com",
+  "location": "Jimbaran, Bali, Indonesia",
+  "impacts": [
+    { "num": "1,589", "label": "Community Members Engaged" },
+    { "num": "52",    "label": "Partner Organizations" },
+    { "num": "2,000+","label": "Students Trained" },
+    { "num": "41",    "label": "Countries Reached" }
+  ],
+  "philosophy": [
+    {
+      "title": "Palemahan",
+      "subtitle": "Harmony with Nature",
+      "text": "Every project begins with the land — designing with ecosystems, not against them."
+    },
+    {
+      "title": "Pawongan",
+      "subtitle": "Harmony with People",
+      "text": "Technology and culture are inseparable. We build with communities, not for them."
+    },
+    {
+      "title": "Parahyangan",
+      "subtitle": "Harmony with Spirit",
+      "text": "Purpose-driven making. Every object, system, and space should carry meaning."
+    }
+  ],
+  "founders": [
+    {
+      "name": "Tomas Diez",
+      "role": "Co-Founder & CEO",
+      "org": "Barcelona / Bali",
+      "bio": "Urbanist, fab city pioneer, and design educator. Co-founder of the Fab City Summit and global advocate for distributed manufacturing."
+    },
+    {
+      "name": "Agung Prianta",
+      "role": "Co-Founder & Director",
+      "org": "Bali, Indonesia",
+      "bio": "Balinese architect and cultural practitioner bridging traditional craftsmanship with digital fabrication."
+    }
+  ],
+  "partners": [
+    "Fab Foundation", "MIT Media Lab", "IAAC Barcelona",
+    "Fab City Summit", "Autodesk Foundation", "Ministry of Education Indonesia",
+    "Yayasan Jarak Bali", "GIZ Indonesia", "Plug and Play Bali"
+  ]
+}

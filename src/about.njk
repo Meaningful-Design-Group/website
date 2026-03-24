@@ -1,0 +1,103 @@
+---
+layout: base.njk
+title: About
+description: MDG is a design research and make company bridging Balinese tradition with digital innovation.
+navActive: about
+---
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">About MDG</p>
+    <h1 class="page-hero-title">Designing from<br>the inside out</h1>
+    <p class="page-hero-lead">We are a design research and make company rooted in Bali, working at the intersection of culture, technology, and ecology to create futures worth living in.</p>
+  </div>
+  <svg class="page-hero-polygon" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--terra)" stroke-width="0.5" opacity="0.25">
+      <polygon points="150,20 270,90 270,210 150,280 30,210 30,90" fill="none"/>
+      <polygon points="150,50 245,105 245,195 150,250 55,195 55,105" fill="none"/>
+      <polygon points="150,80 220,120 220,180 150,220 80,180 80,120" fill="none"/>
+      <polygon points="150,110 195,132 195,168 150,190 105,168 105,132" fill="none"/>
+      <line x1="150" y1="20" x2="150" y2="280"/><line x1="30" y1="90" x2="270" y2="210"/><line x1="270" y1="90" x2="30" y2="210"/>
+    </g>
+  </svg>
+</section>
+
+<!-- Philosophy -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Our Philosophy</p>
+    <h2 class="sec-title">Rooted in Tri Hita Karana</h2>
+    <p style="max-width:55ch;margin-top:24px;color:var(--cream-dim);font-size:1.05rem;line-height:1.8;">
+      The Balinese principle of Tri Hita Karana — harmony with nature, people, and spirit — guides everything we design, build, and teach.
+    </p>
+    <div class="tri-strip" style="margin-top:56px;">
+      {% for item in site.philosophy %}
+      <div class="tri-cell fade-up">
+        <h3>{{ item.title }}</h3>
+        <p class="tri-sub">{{ item.subtitle }}</p>
+        <p>{{ item.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Founders -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Founders</p>
+    <h2 class="sec-title">The people behind MDG</h2>
+    <div class="founders-grid" style="margin-top:56px;">
+      {% for f in site.founders %}
+      <div class="founder-card fade-up">
+        <div class="founder-avatar"></div>
+        <h3 class="founder-name">{{ f.name }}</h3>
+        <p class="founder-role">{{ f.role }}</p>
+        <p class="founder-org">{{ f.org }}</p>
+        <p class="founder-bio">{{ f.bio }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="section" style="padding:64px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Partners &amp; Network</p>
+    <h2 class="sec-title">A global network<br>of collaborators</h2>
+    <div class="partners-strip" style="display:flex;flex-wrap:wrap;gap:20px;margin-top:40px;">
+      {% for p in site.partners %}
+      <span class="partner-pill">{{ p }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container">
+    <p class="sec-label">Impact</p>
+    <div class="impact-strip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px;">
+      {% for imp in site.impacts %}
+      <div class="impact-cell fade-up">
+        <div class="impact-num">{{ imp.num }}</div>
+        <div class="impact-label">{{ imp.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <h2>Collaborate with us</h2>
+  <p>We're always open to partnerships, research collaborations, and new projects.</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="/contact/" class="btn btn--primary">Get Involved</a>
+    <a href="/work/" class="btn btn--ghost">See Our Work</a>
+  </div>
+</section>
+{% endblock %}

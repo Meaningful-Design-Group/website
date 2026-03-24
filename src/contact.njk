@@ -1,0 +1,104 @@
+---
+layout: base.njk
+title: Contact
+description: Get in touch with Meaningful Design Group for collaborations, programs, partnerships, and visits.
+navActive: contact
+---
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content">
+    <p class="sec-label">Get Involved</p>
+    <h1 class="page-hero-title">Let's build<br>something<br>meaningful</h1>
+    <p class="page-hero-lead">Whether you're looking to collaborate, learn, fund, or simply visit — we'd love to hear from you.</p>
+  </div>
+  <svg class="page-hero-polygon" width="330" height="330" viewBox="0 0 330 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--terra)" stroke-width="0.5" opacity="0.25">
+      <polygon points="165,22 302,97 302,232 165,307 28,232 28,97" fill="none"/>
+      <polygon points="165,55 270,112 270,218 165,275 60,218 60,112" fill="none"/>
+      <polygon points="165,88 238,127 238,204 165,243 92,204 92,127" fill="none"/>
+      <line x1="165" y1="22" x2="165" y2="307"/><line x1="28" y1="97" x2="302" y2="232"/><line x1="302" y1="97" x2="28" y2="232"/>
+    </g>
+  </svg>
+</section>
+
+<!-- Engagement types -->
+<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
+  <div class="section-container">
+    <p class="sec-label">Ways to Engage</p>
+    <h2 class="sec-title">How we work<br>together</h2>
+    <div class="tri-strip" style="margin-top:56px;grid-template-columns:repeat(3,1fr);">
+      {% set modes = [
+        {title:"Collaborate", text:"Partner with us on a design or research project. We work with organisations, NGOs, governments, and innovators across Southeast Asia and globally."},
+        {title:"Learn", text:"Join one of our programs — from short maker workshops to year-long Fab Academy intensives and our Master in Design for Distributed Innovation."},
+        {title:"Fund", text:"Support our work through grants, impact investment, or philanthropic partnerships. Every contribution helps communities shape their own technological futures."}
+      ] %}
+      {% for m in modes %}
+      <div class="tri-cell fade-up">
+        <h3>{{ m.title }}</h3>
+        <p>{{ m.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Contact form + info -->
+<section class="section" style="padding:80px 8vw;">
+  <div class="section-container" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+    <!-- Form -->
+    <div>
+      <p class="sec-label">Send a Message</p>
+      <h2 class="sec-title" style="margin-bottom:40px;">Say hello</h2>
+      <!-- Netlify Forms — add netlify attribute for free form handling -->
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option value="">Select one…</option>
+            <option value="collaboration">Project Collaboration</option>
+            <option value="program">Educational Program</option>
+            <option value="research">Research Partnership</option>
+            <option value="funding">Funding / Partnership</option>
+            <option value="visit">Visiting Fab Lab Bali</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project, idea, or question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Info -->
+    <div>
+      <p class="sec-label">Find Us</p>
+      <h2 class="sec-title" style="margin-bottom:40px;">Visit in Bali</h2>
+      <div style="color:var(--cream-dim);line-height:2;">
+        <p><strong style="color:var(--cream);">Meaningful Design Group</strong></p>
+        <p>{{ site.location }}</p>
+        <p style="margin-top:24px;"><a href="mailto:{{ site.email }}" style="color:var(--terra);">{{ site.email }}</a></p>
+        {% if site.instagram %}<p><a href="{{ site.instagram }}" target="_blank" rel="noopener" style="color:var(--cyan);">Instagram →</a></p>{% endif %}
+        {% if site.linkedin %}<p><a href="{{ site.linkedin }}" target="_blank" rel="noopener" style="color:var(--cyan);">LinkedIn →</a></p>{% endif %}
+      </div>
+      <div style="margin-top:48px;padding:32px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;">
+        <p class="sec-label" style="margin-bottom:16px;">Fab Lab Bali</p>
+        <p style="color:var(--cream-dim);line-height:1.7;font-size:0.9rem;">Open to makers, researchers, and curious minds. Visit our digital fabrication lab and workshop space in Jimbaran, Bali.</p>
+        <a href="https://fablabbali.com" target="_blank" rel="noopener" class="btn btn--ghost" style="margin-top:20px;display:inline-block;">Visit fablabbali.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

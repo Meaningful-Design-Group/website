@@ -1,0 +1,172 @@
+# ─────────────────────────────────────────────────────────────
+# Decap CMS Configuration for Meaningful Design Group
+# Backend: Netlify Git Gateway (authenticates via Netlify Identity)
+# ─────────────────────────────────────────────────────────────
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images are stored in the repo
+media_folder: "src/assets/images"
+# Where images are referenced in the built site
+public_folder: "/assets/images"
+
+# Show inline preview in the editor
+site_url: https://meaningfuldesigngroup.com
+
+# ─── COLLECTIONS ──────────────────────────────────────────────
+
+collections:
+
+  # ── PROJECTS ──────────────────────────────────────────────────
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{category}}"
+    sortable_fields: ["order", "title", "category"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string", hint: "Used in the URL, e.g. 'fab-lab' → /fab-lab/" }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "Full path, e.g. /fab-lab/" }
+      - { label: "Category", name: "category", widget: "string", default: "Project" }
+      - label: "Accent Colour"
+        name: "accent"
+        widget: "select"
+        options:
+          - { label: "Terracotta (terra)", value: "terra" }
+          - { label: "Cyan", value: "cyan" }
+          - { label: "Lime", value: "lime" }
+        default: "terra"
+      - { label: "Short Description", name: "description", widget: "text", hint: "1–2 sentences shown on cards and in SEO" }
+      - { label: "Hero Subtitle Text", name: "heroText", widget: "text" }
+      - { label: "Hero Title (optional, defaults to Title)", name: "heroTitle", widget: "string", required: false }
+      - label: "Impact Stats"
+        name: "stats"
+        widget: "list"
+        required: false
+        summary: "{{fields.num}} — {{fields.label}}"
+        fields:
+          - { label: "Number", name: "num", widget: "string", hint: "e.g. '1,589' or '100%'" }
+          - { label: "Label", name: "label", widget: "string" }
+      - { label: "Featured on Homepage?", name: "featured", widget: "boolean", default: false }
+      - { label: "Display Order", name: "order", widget: "number", default: 10, value_type: "int" }
+      - { label: "CTA Title", name: "ctaTitle", widget: "string", required: false }
+      - { label: "CTA Subtext", name: "ctaText", widget: "text", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/project.njk" }
+      - { label: "Nav Active", name: "navActive", widget: "hidden", default: "project" }
+
+  # ── PROGRAMS ──────────────────────────────────────────────────
+  - name: "programs"
+    label: "Programs"
+    label_singular: "Program"
+    folder: "src/content/programs"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string" }
+      - label: "Accent Colour"
+        name: "accent"
+        widget: "select"
+        options:
+          - { label: "Terracotta", value: "terra" }
+          - { label: "Cyan", value: "cyan" }
+          - { label: "Lime", value: "lime" }
+        default: "terra"
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Hero Text", name: "heroText", widget: "text" }
+      - { label: "Display Order", name: "order", widget: "number", default: 10 }
+      - label: "Program Details"
+        name: "programMeta"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Duration", name: "duration", widget: "string", required: false }
+          - { label: "Format", name: "format", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string", required: false }
+          - { label: "Language", name: "language", widget: "string", required: false }
+      - { label: "Apply URL", name: "applyUrl", widget: "string", required: false }
+      - { label: "CTA Title", name: "ctaTitle", widget: "string", required: false }
+      - { label: "CTA Text", name: "ctaText", widget: "text", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/program.njk" }
+      - { label: "Nav Active", name: "navActive", widget: "hidden", default: "programs" }
+
+  # ── NEWS / BLOG ────────────────────────────────────────────────
+  - name: "news"
+    label: "News & Stories"
+    label_singular: "Article"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: title
+    sortable_fields: ["date", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "e.g. Fab Lab, Community, Research, Event"
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/page.njk" }
+      - { label: "Nav Active", name: "navActive", widget: "hidden", default: "news" }
+
+  # ── SITE SETTINGS ─────────────────────────────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/_data/site.json"
+        label: "Global Settings"
+        name: "global"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Short Title", name: "shortTitle", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Site Description (SEO)", name: "description", widget: "text" }
+          - { label: "Site URL", name: "url", widget: "string" }
+          - { label: "Copyright Notice", name: "copyright", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+          - label: "Impact Statistics"
+            name: "impacts"
+            widget: "list"
+            summary: "{{fields.num}} — {{fields.label}}"
+            fields:
+              - { label: "Number", name: "num", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Tri Hita Karana Philosophy"
+            name: "philosophy"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Balinese Term", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+          - label: "Founders"
+            name: "founders"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Location", name: "org", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+          - label: "Partners"
+            name: "partners"
+            widget: "list"
+            field: { label: "Partner Name", name: "item", widget: "string" }

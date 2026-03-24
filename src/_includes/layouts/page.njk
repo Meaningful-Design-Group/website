@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+{% block content %}
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      {% if secLabel %}<p class="sec-label">{{ secLabel }}</p>{% endif %}
+      <h1 class="page-hero-title">{{ heroTitle or title }}</h1>
+      {% if heroText %}<p class="page-hero-lead">{{ heroText }}</p>{% endif %}
+    </div>
+    {{ heroSvg | safe }}
+  </section>
+
+  <!-- Page body rendered from markdown -->
+  <div class="rich-text section section-container">
+    {{ content | safe }}
+  </div>
+{% endblock %}

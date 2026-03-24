@@ -1,0 +1,90 @@
+---
+layout: base.njk
+---
+{% block content %}
+  <!-- Project Hero -->
+  <section class="page-hero" data-accent="{{ accent }}">
+    <div class="page-hero-content">
+      <p class="sec-label">{{ category or "Project" }}</p>
+      <h1 class="page-hero-title">{{ heroTitle or title }}</h1>
+      <p class="page-hero-lead">{{ heroText or description }}</p>
+    </div>
+    <!-- Batik polygon accent SVG -->
+    <svg class="page-hero-polygon" width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {% if accent == "lime" %}
+      <g stroke="var(--lime)" stroke-width="0.5" opacity="0.3">
+        <polygon points="150,20 260,80 260,200 150,260 40,200 40,80" fill="none"/>
+        <polygon points="150,50 235,95 235,185 150,230 65,185 65,95" fill="none"/>
+        <polygon points="150,80 210,110 210,170 150,200 90,170 90,110" fill="none"/>
+        <line x1="150" y1="20" x2="150" y2="260"/><line x1="40" y1="80" x2="260" y2="200"/><line x1="260" y1="80" x2="40" y2="200"/>
+      </g>
+      {% elif accent == "cyan" %}
+      <g stroke="var(--cyan)" stroke-width="0.5" opacity="0.3">
+        <circle cx="150" cy="150" r="120" fill="none"/>
+        <circle cx="150" cy="150" r="90" fill="none"/>
+        <circle cx="150" cy="150" r="60" fill="none"/>
+        <circle cx="150" cy="150" r="30" fill="none"/>
+        <line x1="150" y1="30" x2="150" y2="270"/><line x1="30" y1="150" x2="270" y2="150"/>
+        <line x1="65" y1="65" x2="235" y2="235"/><line x1="235" y1="65" x2="65" y2="235"/>
+      </g>
+      {% else %}
+      <g stroke="var(--terra)" stroke-width="0.5" opacity="0.3">
+        <polygon points="150,30 270,90 270,210 150,270 30,210 30,90" fill="none"/>
+        <polygon points="150,60 245,105 245,195 150,240 55,195 55,105" fill="none"/>
+        <polygon points="150,90 220,120 220,180 150,210 80,180 80,120" fill="none"/>
+        <polygon points="150,120 195,135 195,165 150,180 105,165 105,135" fill="none"/>
+      </g>
+      {% endif %}
+    </svg>
+  </section>
+
+  <!-- Stats Strip -->
+  {% if stats and stats.length %}
+  <section class="section" style="padding:48px 8vw;border-bottom:1px solid var(--border);">
+    <div class="impact-strip" style="display:flex;gap:48px;flex-wrap:wrap;">
+      {% for s in stats %}
+      <div class="impact-cell fade-up">
+        <div class="impact-num">{{ s.num }}</div>
+        <div class="impact-label">{{ s.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Project Body -->
+  <section class="section section-container">
+    <div class="rich-text">
+      {{ content | safe }}
+    </div>
+  </section>
+
+  <!-- Related Projects -->
+  {% set relatedProjects = collections.projects | selectattr("data.slug", "!=", page.fileSlug) | list | limit(3) %}
+  {% if relatedProjects.length %}
+  <section class="section" style="padding-top:0;">
+    <div class="section-container">
+      <p class="sec-label">More Work</p>
+      <div class="related-grid">
+        {% for proj in relatedProjects %}
+        <a href="{{ proj.url }}" class="related-card fade-up" data-accent="{{ proj.data.accent }}">
+          <p class="related-card-label">{{ proj.data.category or "Project" }}</p>
+          <h3>{{ proj.data.title }}</h3>
+          <span class="card-link">Explore →</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- CTA Band -->
+  <section class="cta-band">
+    <h2>{{ ctaTitle or "Ready to collaborate?" }}</h2>
+    <p>{{ ctaText or "Get in touch to learn how we can work together." }}</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="/contact/" class="btn btn--primary">Get in Touch</a>
+      <a href="/work/" class="btn btn--ghost">All Projects</a>
+    </div>
+  </section>
+{% endblock %}
