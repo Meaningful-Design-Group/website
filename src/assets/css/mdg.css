@@ -77,6 +77,20 @@ main{padding-top:var(--nav-h);position:relative;z-index:1;}
   width:55vw;height:90vh;pointer-events:none;z-index:1;
 }
 .hero-content{position:relative;z-index:2;max-width:52%;}
+.hero-title{
+  font-size:clamp(3.2rem,7vw,8rem);font-weight:700;
+  line-height:1.0;letter-spacing:-0.025em;margin-bottom:32px;color:var(--cream);
+}
+.hero-lead{
+  font-size:clamp(1.25rem,2.2vw,1.75rem);line-height:1.6;
+  max-width:44ch;color:var(--cream-dim);margin-bottom:48px;font-weight:400;
+}
+.hero-cred{
+  margin-top:28px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--cream-dim);opacity:0.55;
+}
+.hero-cred a{color:var(--terra);text-decoration:none;opacity:1;}
+.hero-cred a:hover{opacity:0.8;}
 .hero-eyebrow{
   font-size:10px;letter-spacing:0.35em;text-transform:uppercase;
   color:var(--cyan);margin-bottom:24px;opacity:0.9;

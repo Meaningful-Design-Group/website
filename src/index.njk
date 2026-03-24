@@ -17,6 +17,7 @@ threeJs: true
       <a href="/work/" class="btn btn--primary">Explore Our Work</a>
       <a href="/about/" class="btn btn--ghost">Learn Our Story</a>
     </div>
+    <p class="hero-cred fade-up">Home of <a href="https://www.fablabs.io/labs/fablabbali" target="_blank" rel="noopener">Fab Lab Bali</a> &nbsp;·&nbsp; Member of the <a href="https://fab.city" target="_blank" rel="noopener">Fab City Global Initiative</a></p>
   </div>
 </section>
 
@@ -30,21 +31,6 @@ threeJs: true
       <p>{{ item.text }}</p>
     </div>
     {% endfor %}
-  </div>
-</section>
-
-<!-- ── IMPACT NUMBERS ── -->
-<section class="section" style="padding:80px 8vw;border-bottom:1px solid var(--border);">
-  <div class="section-container">
-    <p class="sec-label">Impact</p>
-    <div class="impact-strip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px;">
-      {% for imp in site.impacts %}
-      <div class="impact-cell fade-up">
-        <div class="impact-num">{{ imp.num }}</div>
-        <div class="impact-label">{{ imp.label }}</div>
-      </div>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
