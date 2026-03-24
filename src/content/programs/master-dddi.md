@@ -15,8 +15,8 @@ programMeta:
   location: Bali, Indonesia (with international modules)
   language: English
 applyUrl: /contact/
-ctaTitle: Apply to Master DDDI
-ctaText: Applications accepted on a rolling basis. Limited places available.
+ctaTitle: MDDI Is not Live
+ctaText: MDDI closed in 2025, ending a short but very intense lifespam. The program is evolving at the moment.
 ---
 
 ## Programme Overview
