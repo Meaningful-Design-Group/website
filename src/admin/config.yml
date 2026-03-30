@@ -1,11 +1,14 @@
 # ─────────────────────────────────────────────────────────────
 # Decap CMS Configuration for Meaningful Design Group
-# Backend: Netlify Git Gateway (authenticates via Netlify Identity)
+# Backend: GitHub OAuth (via Vercel serverless functions)
 # ─────────────────────────────────────────────────────────────
 
 backend:
-  name: git-gateway
+  name: github
+  repo: Meaningful-Design-Group/website
   branch: main
+  base_url: https://meaningful-design.org
+  auth_endpoint: /api/auth
 
 # Where uploaded images are stored in the repo
 media_folder: "src/assets/images"
@@ -13,7 +16,7 @@ media_folder: "src/assets/images"
 public_folder: "/assets/images"
 
 # Show inline preview in the editor
-site_url: https://meaningfuldesigngroup.com
+site_url: https://meaningful-design.org
 
 # ─── COLLECTIONS ──────────────────────────────────────────────
 
