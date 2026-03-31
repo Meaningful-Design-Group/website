@@ -8,6 +8,12 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Decap CMS mounts here automatically -->
+  <!-- Decap CMS v3 requires this explicit mount point -->
+  <div id="nc-root"></div>
+  <script>
+    window.addEventListener('load', function() {
+      if (window.CMS) { CMS.init(); }
+    });
+  </script>
 </body>
 </html>
