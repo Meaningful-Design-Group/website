@@ -4,16 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MDG Content Studio</title>
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Decap CMS v3 requires this explicit mount point -->
+  <!-- Decap CMS v3 mount point — must exist before the script runs -->
   <div id="nc-root"></div>
-  <script>
-    window.addEventListener('load', function() {
-      if (window.CMS) { CMS.init(); }
-    });
-  </script>
+  <!-- defer ensures the script runs after the DOM is ready -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
 </body>
 </html>
