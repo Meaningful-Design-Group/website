@@ -7,7 +7,7 @@ backend:
   name: github
   repo: Meaningful-Design-Group/website
   branch: main
-  base_url: https://meaningful-design.org
+  base_url: https://website-beryl-one-73.vercel.app
   auth_endpoint: /api/auth
 
 # Where uploaded images are stored in the repo
