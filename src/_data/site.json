@@ -58,6 +58,43 @@
       "bio": "Education innovator and policy leader working at the intersection of design, technology, and community empowerment across Southeast Asia."
     }
   ],
+  "team": [
+    {
+      "name": "Elaine Regina",
+      "role": "Design and Innovation Lead",
+      "bio": "Driving human-centred design processes and creative innovation across MDG's projects and programs."
+    },
+    {
+      "name": "Tafia Sabila",
+      "role": "Design and Innovation Lead",
+      "bio": "Shaping design strategy and collaborative innovation to build meaningful outcomes for communities."
+    },
+    {
+      "name": "I Wayan Arya Paramartha",
+      "role": "Tech Development",
+      "bio": "Building the digital infrastructure and fabrication systems that power MDG's projects and maker spaces."
+    },
+    {
+      "name": "I Komang Alit Krisna Putra",
+      "role": "Tech Development",
+      "bio": "Developing technology solutions and supporting the technical backbone of MDG's innovation ecosystem."
+    },
+    {
+      "name": "Vinny Vironika",
+      "role": "Administration",
+      "bio": "Keeping MDG's operations running smoothly and ensuring teams have everything they need to do great work."
+    },
+    {
+      "name": "Lukman Rizkika",
+      "role": "Community Engagement Partner",
+      "bio": "Connecting MDG with local communities, cultivating partnerships, and amplifying grassroots innovation."
+    },
+    {
+      "name": "Eka Prawira",
+      "role": "Tech Development Advisor",
+      "bio": "Providing strategic technical guidance to steer MDG's technology development and digital transformation."
+    }
+  ],
   "partners": [
     "Fab Foundation", "MIT Media Lab", "IAAC Barcelona",
     "Fab City Summit", "Autodesk Foundation", "Ministry of Education Indonesia",
