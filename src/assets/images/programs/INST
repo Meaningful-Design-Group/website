@@ -1,0 +1,39 @@
+PROGRAM PHOTOS
+==============
+
+Each program needs TWO images: a card thumbnail and a hero banner.
+Place them in the matching subfolder (master-dddi/, fab-academy/, etc.).
+
+---- CARD THUMBNAIL ----
+Filename:  card.jpg
+Size:      800 × 500 px  (16:10 ratio)
+Used on:   Program cards on the homepage and /programs/ page
+
+---- HERO BANNER ----
+Filename:  hero.jpg
+Size:      1600 × 700 px  (wide landscape)
+Used on:   Top of each individual program page
+
+STYLE NOTES
+-----------
+- Show learning in action: workshops, presentations, students collaborating.
+- Hero banners work best as wide horizontal shots — avoid portrait orientation.
+- The hero will have text overlaid, so leave some visual breathing room.
+
+SUBFOLDERS & REQUIRED FILES
+----------------------------
+master-dddi/
+    card.jpg   — 800 × 500 px
+    hero.jpg   — 1600 × 700 px
+
+fab-academy/
+    card.jpg   — 800 × 500 px
+    hero.jpg   — 1600 × 700 px
+
+learning-journeys/
+    card.jpg   — 800 × 500 px
+    hero.jpg   — 1600 × 700 px
+
+vocational/
+    card.jpg   — 800 × 500 px
+    hero.jpg   — 1600 × 700 px
