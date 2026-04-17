@@ -1,0 +1,26 @@
+NEWS & STORIES — Cover Images
+==============================
+
+One cover image per article. These appear as thumbnails on the /news/ listing page
+and as the header image on individual article pages.
+
+SIZE:     1200 × 675 px  (16:9 ratio)
+FORMAT:   JPG
+
+NAMING CONVENTION
+-----------------
+Name each file after the article's slug (the URL segment).
+Examples:
+  fab-lab-opening.jpg
+  hydrogen-village-launch.jpg
+  bali-fab-fest-2024-recap.jpg
+
+To find an article's slug, look at its URL:
+  meaningful-design.org/news/fab-lab-opening/  →  fab-lab-opening.jpg
+
+NOTES
+-----
+- If you're not sure of the slug, use a descriptive name and let Claude know
+  which article each image belongs to.
+- A single strong, well-composed photo per article is enough.
+- Avoid text overlaid on the photo — the site will add the title itself.
